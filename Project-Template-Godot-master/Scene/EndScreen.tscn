@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Roboto/Roboto-Black.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Roboto/Roboto-LightItalic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Replay.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/EndScreen.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Quit.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -600.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_top = 5.84406
+margin_right = 1026.0
+margin_bottom = 602.844
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_Over" type="Label" parent="."]
+margin_left = -16.584
+margin_top = -31.2203
+margin_right = 1008.42
+margin_bottom = 192.78
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.8, 0.121569, 0.121569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = -8.79205
+margin_top = 93.453
+margin_right = 1016.21
+margin_bottom = 317.453
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.8, 0.121569, 0.121569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "You got %s points"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 321.156
+margin_top = 241.948
+margin_right = 718.156
+margin_bottom = 482.948
+size_flags_stretch_ratio = 24.46
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Replay" type="Button" parent="VBoxContainer"]
+margin_top = 59.0
+margin_right = 397.0
+margin_bottom = 118.0
+custom_fonts/font = SubResource( 2 )
+text = "Play Again"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 122.0
+margin_right = 397.0
+margin_bottom = 181.0
+custom_fonts/font = SubResource( 3 )
+text = "Quit"
+script = ExtResource( 5 )
+[connection signal="pressed" from="VBoxContainer/Replay" to="VBoxContainer/Replay" method="_on_Replay_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_Button_pressed"]

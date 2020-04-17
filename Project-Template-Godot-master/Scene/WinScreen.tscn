@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Quit.gd" type="Script" id=1]
+[ext_resource path="res://Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Replay.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 1.10803
+margin_top = -2.21606
+margin_right = 1023.11
+margin_bottom = 597.784
+color = Color( 0.317647, 0.341176, 0.403922, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 333.446
+margin_top = 74.3241
+margin_right = 712.446
+margin_bottom = 202.324
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations!!!!
+YOU ESCAPED!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 338.108
+margin_top = 211.271
+margin_right = 677.108
+margin_bottom = 500.271
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 23.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Replay" type="Button" parent="VBoxContainer"]
+margin_top = 76.0
+margin_right = 339.0
+margin_bottom = 142.0
+custom_fonts/font = SubResource( 2 )
+text = "Replay"
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 146.0
+margin_right = 339.0
+margin_bottom = 212.0
+custom_fonts/font = SubResource( 3 )
+text = "Quit"
+script = ExtResource( 1 )
+[connection signal="pressed" from="VBoxContainer/Replay" to="VBoxContainer/Replay" method="_on_Replay_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_Button_pressed"]
